@@ -246,11 +246,14 @@
                     </div>
                     <div class="col-md-6">
 <form action="https://api.web3forms.com/submit" method="POST">
-    <input type="hidden" name="access_key" value="e4301c46-19d5-4b69-afaa-a88b8951c7f1">                            <input type="text" class="form-control mb-3 bg-transparent text-white border-secondary" placeholder="الاسم الكامل">
-                            <input type="email" class="form-control mb-3 bg-transparent text-white border-secondary" placeholder="البريد الإلكتروني">
-                            <textarea class="form-control mb-3 bg-transparent text-white border-secondary" rows="4" placeholder="تفاصيل المشروع"></textarea>
-                            <button type="submit" class="btn btn-neon w-100"> ارسال رسالة  </button>
-                        </form>
+    <input type="hidden" name="access_key" value="e4301c46-19d5-4b69-afaa-a88b8951c7f1">
+
+    <input type="text" name="name" class="form-control mb-3" placeholder="اسمك" required>
+    <input type="email" name="email" class="form-control mb-3" placeholder="بريدك الإلكتروني" required>
+    <textarea name="message" class="form-control mb-3" placeholder="رسالتك" required></textarea>
+    
+    <button type="submit" class="btn btn-neon w-100">ارسال رسالة</button>
+</form>
                     </div>
                 </div>
             </div>
