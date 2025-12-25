@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abass Suad | Full-Stack Portfolio</title>
+    <title>Abass Suad | Full Portfolio</title>
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css" rel="stylesheet" id="bootstrapCSS">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     
     <style>
@@ -26,50 +27,72 @@
             scroll-behavior: smooth;
         }
 
+        /* Navbar */
         .navbar {
             background: rgba(10, 5, 16, 0.9) !important;
             backdrop-filter: blur(10px);
             border-bottom: 1px solid rgba(255, 0, 127, 0.2);
         }
-
         .navbar-brand { font-weight: 800; background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 
         .lang-switch {
             cursor: pointer; padding: 5px 15px; border: 1px solid var(--neon-pink);
             border-radius: 20px; color: white; font-weight: bold; transition: 0.3s;
         }
-        .lang-switch:hover { background: var(--neon-pink); }
 
-        /* Hero Section */
+        /* Sections Styles */
         .hero-section {
             height: 100vh; display: flex; align-items: center;
             background: radial-gradient(circle at 50% 50%, rgba(122, 0, 255, 0.1) 0%, transparent 80%);
         }
         .hero-title { font-size: calc(2.5rem + 2vw); font-weight: 800; background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 
-        /* Cards & Skills */
         .custom-card {
             background: var(--card-dark); border: 1px solid rgba(255, 0, 127, 0.1);
             border-radius: 20px; padding: 30px; transition: 0.4s; height: 100%;
         }
-        .custom-card:hover { transform: translateY(-10px); border-color: var(--neon-pink); box-shadow: 0 0 20px rgba(255, 0, 127, 0.2); }
+        .custom-card:hover { transform: translateY(-10px); border-color: var(--neon-pink); }
 
         .skill-pill {
             background: rgba(255, 255, 255, 0.05); border: 1px solid var(--neon-purple);
-            padding: 8px 20px; border-radius: 50px; display: inline-block; margin: 5px; transition: 0.3s;
+            padding: 8px 20px; border-radius: 50px; display: inline-block; margin: 5px;
         }
-        .skill-pill:hover { background: var(--gradient); box-shadow: 0 0 15px var(--neon-pink); }
 
         .btn-neon {
             background: var(--gradient); color: white; border: none; border-radius: 50px;
             padding: 12px 35px; font-weight: 700; transition: 0.4s; text-decoration: none;
         }
-        .btn-neon:hover { box-shadow: 0 0 25px var(--neon-pink); transform: scale(1.05); color: white; }
+        .btn-neon:hover { box-shadow: 0 0 25px var(--neon-pink); color: white; }
 
         .section-header { color: var(--neon-pink); margin-bottom: 50px; position: relative; display: inline-block; }
-        .section-header::after { content: ''; position: absolute; width: 50%; height: 3px; background: var(--gradient); bottom: -10px; right: 0; }
 
-        footer { border-top: 1px solid rgba(255, 255, 255, 0.05); padding: 50px 0; background: #07030a; }
+        /* Form Styling - ميزة اللون الأبيض عند الضغط */
+        .form-control {
+            background-color: transparent;
+            color: white;
+            border: 1px solid #444;
+            transition: all 0.3s ease;
+        }
+        .form-control::placeholder { color: #888; }
+        
+        /* هذا الجزء يغير اللون للأبيض عند الضغط (Focus) */
+        .form-control:focus {
+            background-color: white !important;
+            color: black !important;
+            border-color: var(--neon-pink);
+            box-shadow: 0 0 15px rgba(255, 0, 127, 0.4);
+        }
+
+        /* Social Icons in Contact */
+        .social-call-to-action { margin-top: 15px; margin-bottom: 20px; }
+        .social-text { font-size: 0.9rem; color: var(--text-gray); margin-bottom: 10px; display: block; }
+        .social-form-icons { display: flex; justify-content: center; gap: 30px; }
+        .social-form-icons a { font-size: 2.3rem; transition: 0.3s; }
+        .icon-whatsapp { color: #25D366; }
+        .icon-github { color: white; }
+        .social-form-icons a:hover { transform: scale(1.2); }
+
+        footer { border-top: 1px solid rgba(255, 255, 255, 0.05); padding: 40px 0; background: #07030a; }
     </style>
 </head>
 <body>
@@ -95,13 +118,10 @@
 
     <section id="hero" class="hero-section">
         <div class="container text-center text-md-start">
-            <span style="color: var(--neon-pink); text-shadow: 0 0 10px var(--neon-pink); letter-spacing: 2px; font-weight: bold;" data-key="hero-badge">JUNIOR FULL-STACK DEVELOPER</span>
+            <span style="color: var(--neon-pink); font-weight: bold;" data-key="hero-badge">JUNIOR FULL-STACK DEVELOPER</span>
             <h1 class="hero-title mt-2" data-key="hero-name">عباس سعود</h1>
-            <p class="lead text-gray mb-4" data-key="hero-desc">أصمم وأطور حلولاً برمجية متكاملة من الصفر، بأعلى جودة كود وأحدث التصاميم العصرية.</p>
-            <div class="d-flex justify-content-center justify-content-md-start gap-3">
-                <a href="#projects" class="btn btn-neon" data-key="hero-btn">استعرض مشاريعي</a>
-                <a href="https://wa.me/9647854814896" class="btn btn-outline-light rounded-pill px-4">WhatsApp</a>
-            </div>
+            <p class="lead text-gray mb-4" data-key="hero-desc">أصمم وأطور حلولاً برمجية متكاملة بأعلى جودة كود وأحدث التصاميم العصرية.</p>
+            <a href="#projects" class="btn btn-neon" data-key="hero-btn">استعرض مشاريعي</a>
         </div>
     </section>
 
@@ -110,14 +130,14 @@
             <div class="row g-5 align-items-center">
                 <div class="col-md-6">
                     <h2 class="section-header" data-key="about-title">من هو عباس سعود؟</h2>
-                    <p class="text-gray" data-key="about-p">أنا مبرمج شامل متخصص في بناء المواقع والأنظمة الذكية. أركز على تقديم تجربة مستخدم استثنائية من خلال كود نظيف وسريع.</p>
+                    <p class="text-gray" data-key="about-p">أنا مبرمج شامل متخصص في بناء المواقع والأنظمة الذكية، أركز على تقديم تجربة مستخدم استثنائية.</p>
                 </div>
                 <div class="col-md-6">
                     <div class="custom-card">
                         <h4 class="text-white mb-4" data-key="skills-h">المهارات التقنية</h4>
-                        <div class="skill-pill">HTML5</div> <div class="skill-pill">GitHub</div>
-                        <div class="skill-pill">CSS3</div> <div class="skill-pill">JavaScript</div>
-                        <div class="skill-pill">Bootstrap 5</div> <div class="skill-pill">Clean Code</div>
+                        <div class="skill-pill">HTML5</div> <div class="skill-pill">CSS3</div> 
+                        <div class="skill-pill">JavaScript</div> <div class="skill-pill">Bootstrap 5</div>
+                        <div class="skill-pill">GitHub</div> <div class="skill-pill">Clean Code</div>
                     </div>
                 </div>
             </div>
@@ -128,24 +148,9 @@
         <div class="container">
             <h2 class="section-header" data-key="services-title">الخدمات الاحترافية</h2>
             <div class="row g-4">
-                <div class="col-md-4">
-                    <div class="custom-card text-center">
-                        <h3 class="h4 mb-3" data-key="s1-h">تطوير المواقع</h3>
-                        <p class="text-gray" data-key="s1-p">بناء مواقع متكاملة بواجهات عصرية متجاوبة.</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="custom-card text-center">
-                        <h3 class="h4 mb-3" data-key="s2-h">الأنظمة الذكية</h3>
-                        <p class="text-gray" data-key="s2-p">تصميم أنظمة لإدارة الأعمال تسهل إنتاجيتك.</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="custom-card text-center">
-                        <h3 class="h4 mb-3" data-key="s3-h">المتاجر الإلكترونية</h3>
-                        <p class="text-gray" data-key="s3-p">إنشاء متاجر بيع أونلاين سلسة وآمنة.</p>
-                    </div>
-                </div>
+                <div class="col-md-4"><div class="custom-card text-center"><h3 class="h4" data-key="s1-h">تطوير المواقع</h3><p class="text-gray" data-key="s1-p">بناء مواقع متكاملة بواجهات عصرية.</p></div></div>
+                <div class="col-md-4"><div class="custom-card text-center"><h3 class="h4" data-key="s2-h">الأنظمة الذكية</h3><p class="text-gray" data-key="s2-p">تصميم أنظمة لإدارة الأعمال باحترافية.</p></div></div>
+                <div class="col-md-4"><div class="custom-card text-center"><h3 class="h4" data-key="s3-h">المتاجر الإلكترونية</h3><p class="text-gray" data-key="s3-p">إنشاء متاجر بيع أونلاين آمنة وسريعة.</p></div></div>
             </div>
         </div>
     </section>
@@ -156,15 +161,15 @@
             <div class="row g-4">
                 <div class="col-md-6">
                     <div class="custom-card">
-                        <h3 class="h5">Abass Suad Brand</h3>
-                        <p class="small text-gray" data-key="p1-desc">الهوية البصرية والبرمجية الشاملة.</p>
+                        <h3>Abass Suad Brand</h3>
+                        <p class="text-gray" data-key="p1-desc">الهوية البصرية والبرمجية الشاملة.</p>
                         <a href="https://abass-suad.github.io/abass-saud-brand/" class="text-decoration-none" style="color: var(--neon-pink);">Preview ←</a>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="custom-card">
-                        <h3 class="h5">LogicGlow</h3>
-                        <p class="small text-gray" data-key="p2-desc">وكالة حلول رقمية بنمط النيون.</p>
+                        <h3>LogicGlow</h3>
+                        <p class="text-gray" data-key="p2-desc">وكالة حلول رقمية بنمط النيون.</p>
                         <a href="https://abass-suad.github.io/logicglow-digital/" class="text-decoration-none" style="color: var(--neon-pink);">Preview ←</a>
                     </div>
                 </div>
@@ -175,20 +180,27 @@
     <section id="contact" class="py-5">
         <div class="container">
             <div class="custom-card p-5">
-                <div class="row g-4">
+                <div class="row g-4 align-items-center">
                     <div class="col-md-6">
                         <h2 class="section-header" data-key="contact-title">تواصل معي</h2>
-                        <p data-key="contact-desc">دعنا نحول فكرتك إلى واقع!</p>
-                        <p>WhatsApp: <a href="https://wa.me/9647854814896" class="text-white text-decoration-none">+964 785 481 4896</a></p>
-                        <p>GitHub: <a href="https://github.com/abass-suad" class="text-white text-decoration-none">abass-suad</a></p>
+                        <p data-key="contact-desc" class="text-gray">دعنا نحول فكرتك إلى واقع!</p>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6 text-center">
                         <form action="https://api.web3forms.com/submit" method="POST">
                             <input type="hidden" name="access_key" value="e4301c46-19d5-4b69-afaa-a88b8951c7f1">
-                            <input type="text" name="name" class="form-control mb-3 bg-transparent text-white border-secondary" placeholder="الاسم" required>
-                            <input type="email" name="email" class="form-control mb-3 bg-transparent text-white border-secondary" placeholder="الإيميل" required>
-                            <textarea name="message" class="form-control mb-3 bg-transparent text-white border-secondary" placeholder="الرسالة" required></textarea>
-                            <button type="submit" class="btn btn-neon w-100" data-key="send-btn">إرسال</button>
+                            <input type="text" name="name" class="form-control mb-3" placeholder="الاسم / Name" required>
+                            <input type="email" name="email" class="form-control mb-3" placeholder="الإيميل / Email" required>
+                            <textarea name="message" class="form-control mb-3" placeholder="الرسالة / Message" style="height: 110px;" required></textarea>
+                            
+                            <div class="social-call-to-action">
+                                <span class="social-text" data-key="social-call">أو مراسلتنا عبر</span>
+                                <div class="social-form-icons">
+                                    <a href="https://wa.me/9647854814896" class="icon-whatsapp" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                                    <a href="https://github.com/abass-suad" class="icon-github" title="GitHub"><i class="fab fa-github"></i></a>
+                                </div>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-neon w-100" data-key="send-btn">إرسال رسالة</button>
                         </form>
                     </div>
                 </div>
@@ -197,7 +209,7 @@
     </section>
 
     <footer>
-        <div class="container text-center">
+        <div class="container text-center text-gray">
             <p>© <span data-key="footer-text">جميع الحقوق محفوظة لـ</span> <span style="color: var(--neon-pink);">عباس سعود</span> 2024</p>
         </div>
     </footer>
@@ -207,26 +219,28 @@
             ar: {
                 dir: "rtl", lang: "English", bs: "https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css",
                 "nav-home": "الرئيسية", "nav-about": "حول", "nav-services": "خدماتي", "nav-projects": "أعمالي", "nav-contact": "اتصل بي",
-                "hero-badge": "JUNIOR FULL-STACK DEVELOPER", "hero-name": "عباس سعود", "hero-desc": "أصمم وأطور حلولاً برمجية متكاملة من الصفر، بأعلى جودة كود وأحدث التصاميم العصرية.", "hero-btn": "استعرض مشاريعي",
-                "about-title": "من هو عباس سعود؟", "about-p": "أنا مبرمج شامل متخصص في بناء المواقع والأنظمة الذكية. أركز على تقديم تجربة مستخدم استثنائية من خلال كود نظيف وسريع.",
+                "hero-badge": "JUNIOR FULL-STACK DEVELOPER", "hero-name": "عباس سعود", "hero-desc": "أصمم وأطور حلولاً برمجية متكاملة من الصفر.", "hero-btn": "استعرض مشاريعي",
+                "about-title": "من هو عباس سعود؟", "about-p": "أنا مبرمج شامل متخصص في بناء المواقع والأنظمة الذكية.",
                 "skills-h": "المهارات التقنية", "services-title": "الخدمات الاحترافية",
-                "s1-h": "تطوير المواقع", "s1-p": "بناء مواقع متكاملة بواجهات عصرية متجاوبة.",
-                "s2-h": "الأنظمة الذكية", "s2-p": "تصميم أنظمة لإدارة الأعمال تسهل إنتاجيتك.",
-                "s3-h": "المتاجر الإلكترونية", "s3-p": "إنشاء متاجر بيع أونلاين سلسة وآمنة.",
+                "s1-h": "تطوير المواقع", "s1-p": "بناء مواقع متكاملة بواجهات عصرية.",
+                "s2-h": "الأنظمة الذكية", "s2-p": "تصميم أنظمة لإدارة الأعمال باحترافية.",
+                "s3-h": "المتاجر الإلكترونية", "s3-p": "إنشاء متاجر بيع أونلاين آمنة وسريعة.",
                 "projects-title": "أبرز الأعمال", "p1-desc": "الهوية البصرية والبرمجية الشاملة.", "p2-desc": "وكالة حلول رقمية بنمط النيون.",
-                "contact-title": "تواصل معي", "contact-desc": "دعنا نحول فكرتك إلى واقع!", "send-btn": "إرسال", "footer-text": "جميع الحقوق محفوظة لـ"
+                "contact-title": "تواصل معي", "contact-desc": "دعنا نحول فكرتك إلى واقع!", 
+                "social-call": "أو مراسلتنا عبر", "send-btn": "إرسال رسالة", "footer-text": "جميع الحقوق محفوظة لـ"
             },
             en: {
                 dir: "ltr", lang: "العربية", bs: "https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css",
                 "nav-home": "Home", "nav-about": "About", "nav-services": "Services", "nav-projects": "Projects", "nav-contact": "Contact",
-                "hero-badge": "JUNIOR FULL-STACK DEVELOPER", "hero-name": "Abass Suad", "hero-desc": "I design and develop integrated software solutions from scratch with high-quality code.", "hero-btn": "View My Work",
-                "about-title": "Who is Abass Suad?", "about-p": "I am a full-stack developer specialized in building websites and smart systems with a focus on UX and clean code.",
+                "hero-badge": "JUNIOR FULL-STACK DEVELOPER", "hero-name": "Abass Suad", "hero-desc": "I design and develop software solutions from scratch.", "hero-btn": "View My Work",
+                "about-title": "Who is Abass Suad?", "about-p": "I am a full-stack developer specialized in building websites.",
                 "skills-h": "Technical Skills", "services-title": "Professional Services",
-                "s1-h": "Web Development", "s1-p": "Building integrated websites with modern responsive UI.",
-                "s2-h": "Smart Systems", "s2-p": "Designing business management systems to boost productivity.",
-                "s3-h": "E-Commerce", "s3-p": "Creating secure and seamless online shopping stores.",
-                "projects-title": "Featured Projects", "p1-desc": "Complete visual and software branding.", "p2-desc": "Digital agency solutions in neon style.",
-                "contact-title": "Contact Me", "contact-desc": "Let's turn your idea into reality!", "send-btn": "Send", "footer-text": "All Rights Reserved to"
+                "s1-h": "Web Development", "s1-p": "Building modern responsive websites.",
+                "s2-h": "Smart Systems", "s2-p": "Professional business management systems.",
+                "s3-h": "E-Commerce", "s3-p": "Secure and fast online store creation.",
+                "projects-title": "Featured Projects", "p1-desc": "Visual and software branding.", "p2-desc": "Neon-style digital agency.",
+                "contact-title": "Contact Me", "contact-desc": "Let's turn your idea into reality!", 
+                "social-call": "Or contact us via", "send-btn": "Send Message", "footer-text": "All Rights Reserved to"
             }
         };
 
@@ -237,9 +251,7 @@
             document.getElementById('htmlTag').dir = data.dir;
             document.getElementById('bootstrapCSS').href = data.bs;
             document.getElementById('langBtn').innerText = data.lang;
-            document.querySelectorAll('[data-key]').forEach(el => {
-                el.innerText = data[el.getAttribute('data-key')];
-            });
+            document.querySelectorAll('[data-key]').forEach(el => { el.innerText = data[el.getAttribute('data-key')]; });
         }
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
