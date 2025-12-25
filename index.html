@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar" dir="rtl" id="htmlTag">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>عباس سعود | مبرمج شامل</title>
+    <title>Abass Suad | Full-Stack Portfolio</title>
     
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css" rel="stylesheet" id="bootstrapCSS">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     
     <style>
@@ -19,116 +19,57 @@
         }
 
         body {
-            font-family: 'Cairo', sans-serif;
+            font-family: 'Cairo', 'Poppins', sans-serif;
             background-color: var(--bg-dark);
             color: white;
             overflow-x: hidden;
+            scroll-behavior: smooth;
         }
 
-        /* Navbar Customization */
         .navbar {
             background: rgba(10, 5, 16, 0.9) !important;
             backdrop-filter: blur(10px);
             border-bottom: 1px solid rgba(255, 0, 127, 0.2);
         }
-        .navbar-brand {
-            font-weight: 800;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-size: 1.5rem;
+
+        .navbar-brand { font-weight: 800; background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+        .lang-switch {
+            cursor: pointer; padding: 5px 15px; border: 1px solid var(--neon-pink);
+            border-radius: 20px; color: white; font-weight: bold; transition: 0.3s;
         }
+        .lang-switch:hover { background: var(--neon-pink); }
 
         /* Hero Section */
         .hero-section {
-            height: 100vh;
-            display: flex;
-            align-items: center;
+            height: 100vh; display: flex; align-items: center;
             background: radial-gradient(circle at 50% 50%, rgba(122, 0, 255, 0.1) 0%, transparent 80%);
         }
-        .hero-title {
-            font-size: calc(2.5rem + 2vw);
-            font-weight: 800;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            filter: drop-shadow(0 0 10px rgba(255, 0, 127, 0.3));
-        }
-        .neon-badge {
-            color: var(--neon-pink);
-            text-shadow: 0 0 10px var(--neon-pink);
-            letter-spacing: 3px;
-            font-weight: bold;
-        }
+        .hero-title { font-size: calc(2.5rem + 2vw); font-weight: 800; background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 
-        /* Cards Style */
+        /* Cards & Skills */
         .custom-card {
-            background: var(--card-dark);
-            border: 1px solid rgba(255, 0, 127, 0.1);
-            border-radius: 20px;
-            padding: 30px;
-            transition: all 0.4s ease;
-            height: 100%;
+            background: var(--card-dark); border: 1px solid rgba(255, 0, 127, 0.1);
+            border-radius: 20px; padding: 30px; transition: 0.4s; height: 100%;
         }
-        .custom-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--neon-pink);
-            box-shadow: 0 0 20px rgba(255, 0, 127, 0.2);
-        }
+        .custom-card:hover { transform: translateY(-10px); border-color: var(--neon-pink); box-shadow: 0 0 20px rgba(255, 0, 127, 0.2); }
 
-        /* Skill Pills */
         .skill-pill {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid var(--neon-purple);
-            padding: 8px 20px;
-            border-radius: 50px;
-            display: inline-block;
-            margin: 5px;
-            transition: 0.3s;
+            background: rgba(255, 255, 255, 0.05); border: 1px solid var(--neon-purple);
+            padding: 8px 20px; border-radius: 50px; display: inline-block; margin: 5px; transition: 0.3s;
         }
-        .skill-pill:hover {
-            background: var(--gradient);
-            box-shadow: 0 0 15px var(--neon-pink);
-        }
+        .skill-pill:hover { background: var(--gradient); box-shadow: 0 0 15px var(--neon-pink); }
 
-        /* Buttons */
         .btn-neon {
-            background: var(--gradient);
-            color: white;
-            border: none;
-            border-radius: 50px;
-            padding: 12px 35px;
-            font-weight: 700;
-            box-shadow: 0 5px 15px rgba(255, 0, 127, 0.3);
-            transition: 0.4s;
+            background: var(--gradient); color: white; border: none; border-radius: 50px;
+            padding: 12px 35px; font-weight: 700; transition: 0.4s; text-decoration: none;
         }
-        .btn-neon:hover {
-            color: white;
-            transform: scale(1.05);
-            box-shadow: 0 0 25px var(--neon-pink);
-        }
+        .btn-neon:hover { box-shadow: 0 0 25px var(--neon-pink); transform: scale(1.05); color: white; }
 
-        /* Section Titles */
-        .section-header {
-            color: var(--neon-pink);
-            margin-bottom: 50px;
-            position: relative;
-            display: inline-block;
-        }
-        .section-header::after {
-            content: '';
-            position: absolute;
-            width: 50%; height: 3px;
-            background: var(--gradient);
-            bottom: -10px; right: 0;
-        }
+        .section-header { color: var(--neon-pink); margin-bottom: 50px; position: relative; display: inline-block; }
+        .section-header::after { content: ''; position: absolute; width: 50%; height: 3px; background: var(--gradient); bottom: -10px; right: 0; }
 
-        /* Footer */
-        footer {
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            padding: 50px 0;
-            background: #07030a;
-        }
+        footer { border-top: 1px solid rgba(255, 255, 255, 0.05); padding: 50px 0; background: #07030a; }
     </style>
 </head>
 <body>
@@ -140,47 +81,43 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#hero">الرئيسية</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#about">حول</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#services">خدماتي</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#projects">أعمالي</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">اتصل بي</a></li>
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="#hero" data-key="nav-home">الرئيسية</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about" data-key="nav-about">حول</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services" data-key="nav-services">خدماتي</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects" data-key="nav-projects">أعمالي</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact" data-key="nav-contact">اتصل بي</a></li>
+                    <li class="nav-item"><div class="lang-switch ms-lg-3" onclick="toggleLanguage()" id="langBtn">English</div></li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <section id="hero" class="hero-section text-center text-md-end">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-8">
-                    <span class="neon-badge">juinor-STACK DEVELOPER</span>
-                    <h1 class="hero-title mt-2">عباس سعود</h1>
-                    <p class="lead text-gray mb-4">أصمم وأطور حلولاً برمجية متكاملة من الصفر، بأعلى جودة كود وأحدث التصاميم العصرية.</p>
-                    <a href="#projects" class="btn btn-neon">استعرض مشاريعي</a>
-                </div>
+    <section id="hero" class="hero-section">
+        <div class="container text-center text-md-start">
+            <span style="color: var(--neon-pink); text-shadow: 0 0 10px var(--neon-pink); letter-spacing: 2px; font-weight: bold;" data-key="hero-badge">JUNIOR FULL-STACK DEVELOPER</span>
+            <h1 class="hero-title mt-2" data-key="hero-name">عباس سعود</h1>
+            <p class="lead text-gray mb-4" data-key="hero-desc">أصمم وأطور حلولاً برمجية متكاملة من الصفر، بأعلى جودة كود وأحدث التصاميم العصرية.</p>
+            <div class="d-flex justify-content-center justify-content-md-start gap-3">
+                <a href="#projects" class="btn btn-neon" data-key="hero-btn">استعرض مشاريعي</a>
+                <a href="https://wa.me/9647854814896" class="btn btn-outline-light rounded-pill px-4">WhatsApp</a>
             </div>
         </div>
     </section>
 
     <section id="about" class="py-5">
         <div class="container py-5">
-            <div class="row g-4 align-items-center">
+            <div class="row g-5 align-items-center">
                 <div class="col-md-6">
-                    <h2 class="section-header">من هو عباس سعود؟</h2>
-                    <p class="text-gray">أنا مبرمج شامل متخصص في بناء المواقع والأنظمة الذكية. أركز على تقديم تجربة مستخدم (UX) استثنائية من خلال كود نظيف وسريع. فلسفتي تعتمد على الدقة في التفاصيل والابتكار الدائم لتلبية طموحات أصحاب الأعمال.</p>
+                    <h2 class="section-header" data-key="about-title">من هو عباس سعود؟</h2>
+                    <p class="text-gray" data-key="about-p">أنا مبرمج شامل متخصص في بناء المواقع والأنظمة الذكية. أركز على تقديم تجربة مستخدم استثنائية من خلال كود نظيف وسريع.</p>
                 </div>
                 <div class="col-md-6">
                     <div class="custom-card">
-                        <h4 class="text-white mb-3">المهارات التقنية</h4>
-                        <div class="skill-pill">HTML5</div>
-                        <div class="skill-pill">github</div>
-                        <div class="skill-pill">CSS3</div>
-                        <div class="skill-pill">JavaScript</div>
-                        <div class="skill-pill">Bootstrap 5</div>
-                        <div class="skill-pill">Clean Code</div>
-                        <div class="skill-pill">Responsive Design</div>
+                        <h4 class="text-white mb-4" data-key="skills-h">المهارات التقنية</h4>
+                        <div class="skill-pill">HTML5</div> <div class="skill-pill">GitHub</div>
+                        <div class="skill-pill">CSS3</div> <div class="skill-pill">JavaScript</div>
+                        <div class="skill-pill">Bootstrap 5</div> <div class="skill-pill">Clean Code</div>
                     </div>
                 </div>
             </div>
@@ -189,24 +126,24 @@
 
     <section id="services" class="py-5">
         <div class="container">
-            <h2 class="section-header">الخدمات الاحترافية</h2>
+            <h2 class="section-header" data-key="services-title">الخدمات الاحترافية</h2>
             <div class="row g-4">
                 <div class="col-md-4">
                     <div class="custom-card text-center">
-                        <h3 class="h4 mb-3">تطوير المواقع</h3>
-                        <p class="text-gray">بناء مواقع متكاملة بواجهات عصرية متجاوبة مع كافة الشاشات.</p>
+                        <h3 class="h4 mb-3" data-key="s1-h">تطوير المواقع</h3>
+                        <p class="text-gray" data-key="s1-p">بناء مواقع متكاملة بواجهات عصرية متجاوبة.</p>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="custom-card text-center">
-                        <h3 class="h4 mb-3">الأنظمة الذكية</h3>
-                        <p class="text-gray">تصميم أنظمة لإدارة الأعمال تسهل وتسرع من إنتاجيتك.</p>
+                        <h3 class="h4 mb-3" data-key="s2-h">الأنظمة الذكية</h3>
+                        <p class="text-gray" data-key="s2-p">تصميم أنظمة لإدارة الأعمال تسهل إنتاجيتك.</p>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="custom-card text-center">
-                        <h3 class="h4 mb-3">المتاجر الإلكترونية</h3>
-                        <p class="text-gray">إنشاء متاجر بيع أونلاين تدعم تجربة شراء سلسة وآمنة.</p>
+                        <h3 class="h4 mb-3" data-key="s3-h">المتاجر الإلكترونية</h3>
+                        <p class="text-gray" data-key="s3-p">إنشاء متاجر بيع أونلاين سلسة وآمنة.</p>
                     </div>
                 </div>
             </div>
@@ -215,20 +152,20 @@
 
     <section id="projects" class="py-5">
         <div class="container">
-            <h2 class="section-header">أبرز الأعمال</h2>
+            <h2 class="section-header" data-key="projects-title">أبرز الأعمال</h2>
             <div class="row g-4">
                 <div class="col-md-6">
                     <div class="custom-card">
                         <h3 class="h5">Abass Suad Brand</h3>
-                        <p class="small text-gray">الهوية البصرية والبرمجية الشاملة.</p>
-                        <a href="https://abass-suad.github.io/abass-saud-brand/" class="text-decoration-none" style="color: var(--neon-pink);">معاينة المشروع ←</a>
+                        <p class="small text-gray" data-key="p1-desc">الهوية البصرية والبرمجية الشاملة.</p>
+                        <a href="https://abass-suad.github.io/abass-saud-brand/" class="text-decoration-none" style="color: var(--neon-pink);">Preview ←</a>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="custom-card">
                         <h3 class="h5">LogicGlow</h3>
-                        <p class="small text-gray">وكالة حلول رقمية بنمط النيون.</p>
-                        <a href="https://abass-suad.github.io/logicglow-digital/" class="text-decoration-none" style="color: var(--neon-pink);">معاينة المشروع ←</a>
+                        <p class="small text-gray" data-key="p2-desc">وكالة حلول رقمية بنمط النيون.</p>
+                        <a href="https://abass-suad.github.io/logicglow-digital/" class="text-decoration-none" style="color: var(--neon-pink);">Preview ←</a>
                     </div>
                 </div>
             </div>
@@ -238,22 +175,21 @@
     <section id="contact" class="py-5">
         <div class="container">
             <div class="custom-card p-5">
-                <div class="row">
+                <div class="row g-4">
                     <div class="col-md-6">
-                        <h2 class="section-header">تواصل معي</h2>
-                        <p>هل لديك فكرة مشروع؟ دعنا نحولها إلى واقع!</p>
-                        <p>واتساب: <span class="text-white">+9647854814896</span></p>
+                        <h2 class="section-header" data-key="contact-title">تواصل معي</h2>
+                        <p data-key="contact-desc">دعنا نحول فكرتك إلى واقع!</p>
+                        <p>WhatsApp: <a href="https://wa.me/9647854814896" class="text-white text-decoration-none">+964 785 481 4896</a></p>
+                        <p>GitHub: <a href="https://github.com/abass-suad" class="text-white text-decoration-none">abass-suad</a></p>
                     </div>
                     <div class="col-md-6">
-<form action="https://api.web3forms.com/submit" method="POST">
-    <input type="hidden" name="access_key" value="e4301c46-19d5-4b69-afaa-a88b8951c7f1">
-
-    <input type="text" name="name" class="form-control mb-3" placeholder="اسمك" required>
-    <input type="email" name="email" class="form-control mb-3" placeholder="بريدك الإلكتروني" required>
-    <textarea name="message" class="form-control mb-3" placeholder="رسالتك" required></textarea>
-    
-    <button type="submit" class="btn btn-neon w-100">ارسال رسالة</button>
-</form>
+                        <form action="https://api.web3forms.com/submit" method="POST">
+                            <input type="hidden" name="access_key" value="e4301c46-19d5-4b69-afaa-a88b8951c7f1">
+                            <input type="text" name="name" class="form-control mb-3 bg-transparent text-white border-secondary" placeholder="الاسم" required>
+                            <input type="email" name="email" class="form-control mb-3 bg-transparent text-white border-secondary" placeholder="الإيميل" required>
+                            <textarea name="message" class="form-control mb-3 bg-transparent text-white border-secondary" placeholder="الرسالة" required></textarea>
+                            <button type="submit" class="btn btn-neon w-100" data-key="send-btn">إرسال</button>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -262,14 +198,50 @@
 
     <footer>
         <div class="container text-center">
-            <p>© جميع الحقوق محفوظة لـ <span style="color: var(--neon-pink);">عباس سعود</span> 2024</p>
-            <div class="mt-3">
-                <a href="https://github.com/abass-suad" class="text-white mx-2">GitHub</a>
-                <a href="#" class="text-white mx-2">LinkedIn</a>
-            </div>
+            <p>© <span data-key="footer-text">جميع الحقوق محفوظة لـ</span> <span style="color: var(--neon-pink);">عباس سعود</span> 2024</p>
         </div>
     </footer>
 
+    <script>
+        const translations = {
+            ar: {
+                dir: "rtl", lang: "English", bs: "https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css",
+                "nav-home": "الرئيسية", "nav-about": "حول", "nav-services": "خدماتي", "nav-projects": "أعمالي", "nav-contact": "اتصل بي",
+                "hero-badge": "JUNIOR FULL-STACK DEVELOPER", "hero-name": "عباس سعود", "hero-desc": "أصمم وأطور حلولاً برمجية متكاملة من الصفر، بأعلى جودة كود وأحدث التصاميم العصرية.", "hero-btn": "استعرض مشاريعي",
+                "about-title": "من هو عباس سعود؟", "about-p": "أنا مبرمج شامل متخصص في بناء المواقع والأنظمة الذكية. أركز على تقديم تجربة مستخدم استثنائية من خلال كود نظيف وسريع.",
+                "skills-h": "المهارات التقنية", "services-title": "الخدمات الاحترافية",
+                "s1-h": "تطوير المواقع", "s1-p": "بناء مواقع متكاملة بواجهات عصرية متجاوبة.",
+                "s2-h": "الأنظمة الذكية", "s2-p": "تصميم أنظمة لإدارة الأعمال تسهل إنتاجيتك.",
+                "s3-h": "المتاجر الإلكترونية", "s3-p": "إنشاء متاجر بيع أونلاين سلسة وآمنة.",
+                "projects-title": "أبرز الأعمال", "p1-desc": "الهوية البصرية والبرمجية الشاملة.", "p2-desc": "وكالة حلول رقمية بنمط النيون.",
+                "contact-title": "تواصل معي", "contact-desc": "دعنا نحول فكرتك إلى واقع!", "send-btn": "إرسال", "footer-text": "جميع الحقوق محفوظة لـ"
+            },
+            en: {
+                dir: "ltr", lang: "العربية", bs: "https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css",
+                "nav-home": "Home", "nav-about": "About", "nav-services": "Services", "nav-projects": "Projects", "nav-contact": "Contact",
+                "hero-badge": "JUNIOR FULL-STACK DEVELOPER", "hero-name": "Abass Suad", "hero-desc": "I design and develop integrated software solutions from scratch with high-quality code.", "hero-btn": "View My Work",
+                "about-title": "Who is Abass Suad?", "about-p": "I am a full-stack developer specialized in building websites and smart systems with a focus on UX and clean code.",
+                "skills-h": "Technical Skills", "services-title": "Professional Services",
+                "s1-h": "Web Development", "s1-p": "Building integrated websites with modern responsive UI.",
+                "s2-h": "Smart Systems", "s2-p": "Designing business management systems to boost productivity.",
+                "s3-h": "E-Commerce", "s3-p": "Creating secure and seamless online shopping stores.",
+                "projects-title": "Featured Projects", "p1-desc": "Complete visual and software branding.", "p2-desc": "Digital agency solutions in neon style.",
+                "contact-title": "Contact Me", "contact-desc": "Let's turn your idea into reality!", "send-btn": "Send", "footer-text": "All Rights Reserved to"
+            }
+        };
+
+        let currentLang = 'ar';
+        function toggleLanguage() {
+            currentLang = currentLang === 'ar' ? 'en' : 'ar';
+            const data = translations[currentLang];
+            document.getElementById('htmlTag').dir = data.dir;
+            document.getElementById('bootstrapCSS').href = data.bs;
+            document.getElementById('langBtn').innerText = data.lang;
+            document.querySelectorAll('[data-key]').forEach(el => {
+                el.innerText = data[el.getAttribute('data-key')];
+            });
+        }
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
